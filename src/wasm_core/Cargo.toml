@@ -1,0 +1,13 @@
+[package]
+name = "wasm_core"
+version = "0.1.0"
+authors = ["Dudnik Pavel <ne.pridumal.nik@yandex.ru>"]
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+name = "webasm"
+
+[dependencies]
+wasm-bindgen = "*"
+
