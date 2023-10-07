@@ -11,3 +11,6 @@ path = "src/server/main.rs"
 [dependencies]
 actix-web = "*"
 actix-files = "*"
+actix-rt = "*"
+env_logger = "*"
+serde = { version = "*", features = ["derive"] }

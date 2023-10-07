@@ -10,18 +10,23 @@
 <body>
     <h1 id="root"></h1>
 
+    <form action="/signup" method="post">
+        <input type="text" name="name" placeholder="Введите имя нового пользователя">
+        <button type="submit">Тык</button>
+    </form>
+
     <script type="module">
         import init, { greet, add } from './pkg/webasm.js'
 
         await init()
-
-        greet()
 
         const result = add(1.1, 2.2)
         const el = document.getElementById('root')
 
         el.innerHTML = 'Hello, WEB Assembly: ' + parseFloat(result).toFixed(2)
     </script>
+
+    <script src="framework/vue.js"></script>
 </body>
 
 </html>
