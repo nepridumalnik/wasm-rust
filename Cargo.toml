@@ -6,6 +6,8 @@ edition = "2021"
 
 [[bin]]
 name = "server"
-path = "src/main.rs"
+path = "src/server/main.rs"
 
 [dependencies]
+actix-web = "*"
+actix-files = "*"

@@ -9,3 +9,8 @@ extern "C" {
 pub fn greet() {
     alert("Hello, wasm-pack!");
 }
+
+#[wasm_bindgen]
+pub fn add(x: f64, y: f64) -> f64 {
+    x + y
+}

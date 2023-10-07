@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WASM Application</title>
+</head>
+
+<body>
+    <h1 id="root"></h1>
+
+    <script type="module">
+        import init, { greet, add } from './pkg/webasm.js'
+
+        await init()
+
+        greet()
+
+        const result = add(1.1, 2.2)
+        const el = document.getElementById('root')
+
+        el.innerHTML = 'Hello, WEB Assembly: ' + parseFloat(result).toFixed(2)
+    </script>
+</body>
+
+</html>
