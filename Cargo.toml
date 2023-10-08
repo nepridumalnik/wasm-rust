@@ -8,6 +8,10 @@ edition = "2021"
 name = "frontend"
 path = "src/frontend/main.rs"
 
+[[bin]]
+name = "backend"
+path = "src/backend/main.rs"
+
 [dependencies]
 actix-web = "*"
 actix-files = "*"

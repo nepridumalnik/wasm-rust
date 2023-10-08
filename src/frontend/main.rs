@@ -13,13 +13,13 @@ fn handle_static_files() -> actix_files::Files {
 async fn main() -> std::io::Result<()> {
     env_logger::init();
 
-    HttpServer::new(|| {
+    let factory = || {
         App::new()
             .wrap(Logger::default())
             .route("/signup", web::post().to(reg_post::process_signup))
             .service(handle_static_files())
-    })
-    .bind(("127.0.0.1", 8080))?
-    .run()
-    .await
+    };
+
+    let server = HttpServer::new(factory).bind(("127.0.0.1", 8080))?;
+    server.run().await
 }
