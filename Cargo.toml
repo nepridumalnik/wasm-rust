@@ -5,8 +5,8 @@ authors = ["Dudnik Pavel <ne.pridumal.nik@yandex.ru>"]
 edition = "2021"
 
 [[bin]]
-name = "server"
-path = "src/server/main.rs"
+name = "frontend"
+path = "src/frontend/main.rs"
 
 [dependencies]
 actix-web = "*"
