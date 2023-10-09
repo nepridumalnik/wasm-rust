@@ -1,6 +1,4 @@
-mod reg_post;
-
-use actix_web::{middleware::Logger, web, App, HttpServer};
+use actix_web::{middleware::Logger, App, HttpServer};
 
 /// Создать обработчик статических файлов
 /// # Примечание
@@ -16,7 +14,6 @@ async fn main() -> std::io::Result<()> {
     let factory = || {
         App::new()
             .wrap(Logger::default())
-            .route("/signup", web::post().to(reg_post::process_signup))
             .service(handle_static_files())
     };
 

@@ -1,4 +1,8 @@
+use actix_web::{web, Responder};
 use mysql::prelude::Queryable;
+use serde::Deserialize;
+
+use super::AppState;
 
 const CREATE_MAIN_TABLE: &str = r"CREATE TABLE IF NOT EXISTS Users (
     ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -12,6 +16,18 @@ const CREATE_MAIN_TABLE: &str = r"CREATE TABLE IF NOT EXISTS Users (
     Email VARCHAR(50) NOT NULL UNIQUE,
     INDEX (Name, Email)
     ) ENGINE=InnoDB CHARSET=utf8";
+
+#[derive(Debug, Deserialize)]
+pub struct User {
+    pub name: String,
+    pub second_name: String,
+    pub age: u32,
+    pub male: bool,
+    pub interests: String,
+    pub city: String,
+    pub password: String,
+    pub email: String,
+}
 
 pub struct Connection {
     pub name: String,
@@ -53,4 +69,10 @@ impl Database {
             port: 3306,
         })
     }
+}
+
+pub async fn register_user(data: web::Data<AppState>, user: web::Form<User>) -> impl Responder {
+    let _conn = data.db.pool.get_conn().unwrap();
+    println!("{:?}", user);
+    format!("{:?}", user)
 }

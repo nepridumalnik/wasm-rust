@@ -1,5 +1,5 @@
-mod cache;
-mod database;
+pub mod cache;
+pub mod database;
 
 use std::sync::Mutex;
 
