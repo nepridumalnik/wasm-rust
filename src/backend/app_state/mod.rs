@@ -1,17 +1,20 @@
-mod connection;
+mod cache;
+mod database;
 
 use std::sync::Mutex;
 
 pub struct AppState {
     pub counter: Mutex<u32>,
-    pub db: connection::Database,
+    pub db: database::Database,
+    pub ch: cache::Cache,
 }
 
 impl AppState {
     pub fn new() -> AppState {
         AppState {
             counter: Mutex::new(0),
-            db: connection::Database::default(),
+            db: database::Database::default(),
+            ch: cache::Cache::default(),
         }
     }
 }

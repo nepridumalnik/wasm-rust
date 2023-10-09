@@ -1,7 +1,5 @@
 use mysql::prelude::Queryable;
 
-use serde::{Deserialize, Serialize};
-
 const CREATE_MAIN_TABLE: &str = r"CREATE TABLE IF NOT EXISTS Users (
     ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     Name VARCHAR(50) NOT NULL,
@@ -15,7 +13,6 @@ const CREATE_MAIN_TABLE: &str = r"CREATE TABLE IF NOT EXISTS Users (
     INDEX (Name, Email)
     ) ENGINE=InnoDB CHARSET=utf8";
 
-#[derive(Serialize, Deserialize)]
 pub struct Connection {
     pub name: String,
     pub password: String,

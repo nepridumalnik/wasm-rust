@@ -18,4 +18,5 @@ actix-files = "*"
 actix-rt = "*"
 env_logger = "*"
 mysql = "*"
+redis = "*"
 serde = { version = "*", features = ["derive"] }

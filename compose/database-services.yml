@@ -20,3 +20,10 @@ services:
       PMA_HOST: db
     ports:
       - "80:80"
+
+  # Кэш
+  redis:
+    image: redis:alpine
+    command: redis-server --requirepass ==PaSsWoRd==
+    ports:
+     - "6379:6379"
